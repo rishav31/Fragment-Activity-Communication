@@ -3,12 +3,12 @@ package com.example.rishu.fragactivitycommunication;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-import com.google.android.gms.plus.PlusOneButton;
+import androidx.fragment.app.Fragment;
 
 /**
  * A fragment with a Google +1 button.
@@ -30,7 +30,7 @@ public class PlusOneFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private PlusOneButton mPlusOneButton;
+    private Button mPlusOneButton;
 
     private OnFragmentInteractionListener mListener;
     private int count = 0;
@@ -73,7 +73,7 @@ public class PlusOneFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_plus_one, container, false);
 
         //Find the +1 button
-        mPlusOneButton = (PlusOneButton) view.findViewById(R.id.plus_one_button);
+        mPlusOneButton = view.findViewById(R.id.plus_one_button);
         mPlusOneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,9 +90,7 @@ public class PlusOneFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
-        // Refresh the state of the +1 button each time the activity receives focus.
-        mPlusOneButton.initialize(PLUS_ONE_URL, PLUS_ONE_REQUEST_CODE);
+        // Button is now ready to use
     }
 
     // TODO: Rename method, update argument and hook method into UI event
